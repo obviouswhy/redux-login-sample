@@ -1,18 +1,13 @@
-import React, { useEffect, useState } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
-import { authUser, getLoggedIn } from '../../redux/slices/login/loginSlice'
 import './login.css'
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
+import { authUser } from '../../redux/slices/login/loginSlice'
 
 export const Login = () => {
   const history = useHistory()
-  const isLoggedIn = useSelector(getLoggedIn)
   const dispatch = useDispatch()
   const [user, setUser] = useState({ username: '', password: '' })
-
-  useEffect(() => {
-    isLoggedIn ? history.push('/private') : history.push('/')
-  }, [isLoggedIn])
 
   return (
     <div className={'login-wrapper'}>
@@ -33,7 +28,7 @@ export const Login = () => {
               className={'textbox'}
               aria-label="Username Input"
               value={user.username}
-              placeholder={'john12'}
+              placeholder={'admin'}
               onChange={e =>
                 setUser(prevState => ({
                   ...prevState,
@@ -61,7 +56,11 @@ export const Login = () => {
           <button
             className={'button'}
             aria-label="Log In"
-            onClick={() => dispatch(authUser(user))}>
+            onClick={() =>
+              dispatch(authUser(user)).then(res =>
+                res ? history.push('/private') : null,
+              )
+            }>
             ログイン
           </button>
         </div>

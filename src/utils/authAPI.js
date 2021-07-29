@@ -16,7 +16,7 @@ export function autheticateUser(user) {
           () =>
             reject({
               statusCode: 401,
-              message: 'user or password is not correct',
+              message: 'ユーザー名かパスワードは正しくありません。',
               data: { isAuth: false },
             }),
           500,
