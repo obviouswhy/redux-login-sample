@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { autheticateUser } from '../../../utils/authAPI'
 
 const initialState = {
-  isLoggedIn: false,
+  isLoggedIn: window.localStorage.getItem('isLoggedIn') === 'true' || false,
   isLoading: false,
 }
 
@@ -23,6 +23,7 @@ export const loginSlice = createSlice({
   reducers: {
     logOut: state => {
       state.isLoggedIn = false
+      window.localStorage.setItem('isLoggedIn', false)
     },
   },
   extraReducers: builder => {
@@ -33,6 +34,7 @@ export const loginSlice = createSlice({
       .addCase(authUser.fulfilled, (state, action) => {
         state.isLoading = false
         state.isLoggedIn = action.payload
+        window.localStorage.setItem('isLoggedIn', action.payload)
       })
   },
 })

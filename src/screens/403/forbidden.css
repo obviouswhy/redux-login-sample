@@ -1,0 +1,31 @@
+.forbidden-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100vw;
+}
+
+.forbidden-wrapper h1 {
+  margin: 0;
+  margin-top: -10%;
+  font-size: 8rem;
+  font-weight: bolder;
+  letter-spacing: -0.5rem;
+  color: #303030;
+}
+.forbidden-wrapper h2 {
+  margin: 0;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  font-weight: bolder;
+  letter-spacing: -0.1rem;
+  color: #303030;
+}
+.forbidden-wrapper h3 {
+  margin: 0;
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+  font-weight: lighter;
+}

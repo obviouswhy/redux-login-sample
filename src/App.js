@@ -2,10 +2,15 @@ import React from 'react'
 import { Login } from './screens/Login'
 import './App.css'
 import { useSelector } from 'react-redux'
-import { getAuthLoading } from './redux/slices/login/loginSlice'
+import { getAuthLoading, getLoggedIn } from './redux/slices/login/loginSlice'
+import PrivateScreen from './screens/PrivateScreen'
+import NotFound from './screens/404/index'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import AuthenticatedRoute from './utils/AuthenticatedRoute'
 
 const App = () => {
   const isLoading = useSelector(getAuthLoading)
+  const isLoggedIn = useSelector(getLoggedIn)
   return (
     <div className="App">
       {isLoading && (
@@ -13,7 +18,18 @@ const App = () => {
           <h1>読み込み中...</h1>
         </div>
       )}
-      <Login />
+      <Router>
+        <Switch>
+          <Route path={'/'} exact component={Login} />
+          <AuthenticatedRoute
+            exact
+            path="/private"
+            isLoggedIn={isLoggedIn}
+            component={PrivateScreen}
+          />
+          <Route path={'*'} exact component={NotFound} />
+        </Switch>
+      </Router>
     </div>
   )
 }
