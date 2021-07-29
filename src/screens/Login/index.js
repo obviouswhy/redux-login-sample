@@ -4,27 +4,20 @@ import {
   authUser,
   logOut,
   getLoggedIn,
-  getAuthLoading,
-} from '../../slices/login/loginSlice'
-import styles from './Counter.module.css'
+} from '../../redux/slices/login/loginSlice'
+import './login.css'
 
 export const Login = () => {
   const isLoggedIn = useSelector(getLoggedIn)
-  const isLoading = useSelector(getAuthLoading)
   const dispatch = useDispatch()
   const [user, setUser] = useState({ username: '', password: '' })
 
   return (
     <div>
-      <div className={styles.row}>
-        <span className={styles.value}>
-          {isLoggedIn ? 'Logged In' : 'Logged Out'}
-        </span>
+      <div className={'row'}>
+        <h1 className={'title'}>ログイン画面</h1>
       </div>
-      <div className={styles.row}>
-        <span className={styles.value}>{isLoading ? 'Loading!!' : ''}</span>
-      </div>
-      <div className={styles.row}>
+      <div className={'row'}>
         <div
           style={{
             display: 'flex',
@@ -32,9 +25,9 @@ export const Login = () => {
             width: '20rem',
             flexDirection: 'column',
           }}>
-          <label style={{ alignSelf: 'flex-start' }}>Username</label>
+          <label className={'textbox-label'}>ユーザー名</label>
           <input
-            className={styles.textbox}
+            className={'textbox'}
             aria-label="Username Input"
             value={user.username}
             placeholder={'john12'}
@@ -42,9 +35,9 @@ export const Login = () => {
               setUser(prevState => ({ ...prevState, username: e.target.value }))
             }
           />
-          <label>Password</label>
+          <label className={'textbox-label'}>パスワード</label>
           <input
-            className={styles.textbox}
+            className={'textbox'}
             type={'password'}
             aria-label="Password Input"
             placeholder={'**********'}
@@ -55,19 +48,22 @@ export const Login = () => {
           />
         </div>
       </div>
-      <div className={styles.row}>
-        <button
-          className={styles.button}
-          aria-label="Log In"
-          onClick={() => dispatch(authUser(user))}>
-          Log In
-        </button>
-        <button
-          className={styles.button}
-          aria-label="Log Out"
-          onClick={() => dispatch(logOut())}>
-          Log Out
-        </button>
+      <div className={'row'}>
+        {isLoggedIn ? (
+          <button
+            className={'button'}
+            aria-label="Log Out"
+            onClick={() => dispatch(logOut())}>
+            ログアウト
+          </button>
+        ) : (
+          <button
+            className={'button'}
+            aria-label="Log In"
+            onClick={() => dispatch(authUser(user))}>
+            ログイン
+          </button>
+        )}
       </div>
     </div>
   )

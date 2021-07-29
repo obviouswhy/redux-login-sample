@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import { autheticateUser } from '../../utils/authAPI'
+import { autheticateUser } from '../../../utils/authAPI'
 
 const initialState = {
   isLoggedIn: false,
@@ -9,7 +9,6 @@ const initialState = {
 export const authUser = createAsyncThunk('login/authUser', async user => {
   try {
     const res = await autheticateUser(user)
-    alert(res.message)
     return res.data.isAuth
   } catch (error) {
     alert(error.message)

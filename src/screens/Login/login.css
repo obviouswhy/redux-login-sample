@@ -1,0 +1,48 @@
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  appearance: none;
+  background: none;
+  font-size: 1.5rem;
+  padding: 0.5rem 2rem;
+  outline: none;
+  border: 2px solid transparent;
+  color: rgb(112, 76, 182);
+  cursor: pointer;
+  background-color: rgba(112, 76, 182, 0.1);
+  border-radius: 0.2rem;
+  transition: all 0.15s;
+}
+
+.button:hover,
+.button:focus {
+  border: 2px solid rgba(112, 76, 182, 0.2);
+}
+
+.button:active {
+  background-color: rgba(112, 76, 182, 0.2);
+}
+
+.title {
+  font-size: 4rem;
+}
+
+.textbox-label {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.textbox {
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  width: 100%;
+  text-align: left;
+  margin-bottom: 1rem;
+}
