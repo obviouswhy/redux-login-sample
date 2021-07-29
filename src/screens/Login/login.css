@@ -12,6 +12,13 @@
   justify-content: center;
 }
 
+.login-wrapper .input-wrapper {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 20rem;
+}
+
 .button {
   display: flex;
   justify-content: center;

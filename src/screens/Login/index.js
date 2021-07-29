@@ -15,13 +15,7 @@ export const Login = () => {
         <h1 className={'title'}>ログイン画面</h1>
       </div>
       <div className={'row'}>
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'flex-start',
-            width: '20rem',
-            flexDirection: 'column',
-          }}>
+        <div className={'input-wrapper'}>
           <label className={'textbox-label'}>ユーザー名</label>
           <input
             className={'textbox'}
