@@ -9,8 +9,8 @@
 
 ## Download and edit this sample / このサンプルをダウンロードして編集するについて
 `node`と` npm`または `yarn`をグローバルにインストールする必要があります。<br>
-1. git clone https://github.com/obviouswhy/redux-login-sample.git
-2. cd redux-login-sample
+1. `git clone https://github.com/obviouswhy/redux-login-sample.git`
+2. `cd redux-login-sample`
 3. `npm install`/`yarn install`
 4. VSCodeか他のエディターで開いて、編集できます
 ## Available Scripts / 利用可能なスクリプト
