@@ -2,7 +2,7 @@ import './login.css'
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
-import { authUser } from '../../redux/slices/login/loginSlice'
+import { handleLogin } from '../../redux/slices/login/loginSlice'
 
 export const Login = () => {
   const history = useHistory()
@@ -50,7 +50,7 @@ export const Login = () => {
           className={'button'}
           aria-label="Log In"
           onClick={() =>
-            dispatch(authUser(user)).then(res =>
+            dispatch(handleLogin(user)).then(res =>
               res ? history.push('/private') : null,
             )
           }>
@@ -59,7 +59,7 @@ export const Login = () => {
       </div>
       <div className={'row'}>
         <label className={'small-label'}>
-          (ユーザー名はadminです。パスワードもadminです)
+          (ユーザー名はuserです。パスワードも123です)
         </label>
       </div>
     </div>

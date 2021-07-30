@@ -6,7 +6,7 @@ const initialState = {
   isLoading: false,
 }
 
-export const authUser = user => async dispatch => {
+export const handleLogin = user => async dispatch => {
   dispatch(setLoading(true))
   try {
     const res = await autheticateUser(user)
@@ -21,7 +21,7 @@ export const authUser = user => async dispatch => {
   }
 }
 
-export const userLogOut = () => async dispatch => {
+export const handleLogout = () => async dispatch => {
   dispatch(logOut())
   return true
 }

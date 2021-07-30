@@ -1,7 +1,7 @@
 import './privateScreen.css'
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { userLogOut } from '../../redux/slices/login/loginSlice'
+import { handleLogout } from '../../redux/slices/login/loginSlice'
 import { useHistory } from 'react-router-dom'
 
 const PrivateScreen = () => {
@@ -14,7 +14,7 @@ const PrivateScreen = () => {
         className={'button'}
         aria-label="Log Out"
         onClick={() =>
-          dispatch(userLogOut()).then(res =>
+          dispatch(handleLogout()).then(res =>
             res ? history.replace('/') : null,
           )
         }>

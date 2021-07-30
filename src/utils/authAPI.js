@@ -2,7 +2,7 @@
 export function autheticateUser(user) {
   const { username, password } = user
   return new Promise((resolve, reject) =>
-    username === 'admin' && password === 'admin'
+    username === 'user' && password === '123'
       ? setTimeout(
           () =>
             resolve({
