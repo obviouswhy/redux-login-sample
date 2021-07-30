@@ -21,7 +21,7 @@ export const Login = () => {
             className={'textbox'}
             aria-label="Username Input"
             value={user.username}
-            placeholder={'admin'}
+            placeholder={'user'}
             onChange={e =>
               setUser(prevState => ({
                 ...prevState,
